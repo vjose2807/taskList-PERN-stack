@@ -52,7 +52,7 @@ const deleteTask = async (req, res, next) => {
   }
 };
 
-const updateTask = async (req, res) => {
+const updateTask = async (req, res, next) => {
   const { id } = req.params;
   const { title, description } = req.body;
 

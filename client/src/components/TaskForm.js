@@ -67,53 +67,64 @@ export default function TaskForm() {
     <Grid
       container
       direction="column"
-      alignItems="center"
       justifyContent="center"
+      alignItems="center"
+      style={{ minHeight: "80vh" }}
     >
-      <Grid item xs={3}>
+      <Grid item xs={12} sm={8} md={6}>
         <Card
-          sx={{ mt: 5 }}
-          style={{
-            backgroundColor: "#1e272e",
-            padding: "1rem",
-          }}
+          sx={{ backgroundColor: "#1e272e", color: "white" }}
+          style={{ padding: "1rem" }}
         >
-          <Typography variant="5" textAlign="center" color="white">
-            {editing ? "EDIT TASK" : "CREATE TASK"}
-          </Typography>
           <CardContent>
+            <Typography variant="h6" textAlign="center" gutterBottom>
+              {editing ? "EDIT TASK" : "CREATE TASK"}
+            </Typography>
             <form onSubmit={handleSubmit}>
               <TextField
                 variant="filled"
-                label="write your title"
-                sx={{ display: "block", margin: ".5rem 0" }}
+                label="Write your title"
+                fullWidth
+                margin="normal"
                 name="title"
                 value={task.title}
                 onChange={handleChange}
-                inputProps={{ style: { color: "white" } }}
-                InputLabelProps={{ style: { color: "white" } }}
+                InputProps={{ style: { color: "#1e272e" } }}
+                InputLabelProps={{
+                  style: {
+                    color: "#1e272e",
+                    fontSize: "15px",
+                  },
+                }}
+                style={{ backgroundColor: "#f0e792" }}
               />
               <TextField
                 variant="filled"
-                label="write your description"
+                label="Write your description"
                 multiline
-                rows={4}
-                sx={{ display: "block", margin: ".5rem 0" }}
+                rows={5}
+                fullWidth
+                margin="normal"
                 name="description"
                 value={task.description}
                 onChange={handleChange}
-                inputProps={{ style: { color: "white" } }}
-                InputLabelProps={{ style: { color: "white" } }}
+                InputProps={{ style: { color: "#1e272e" } }}
+                InputLabelProps={{
+                  style: {
+                    color: "#1e272e",
+                    fontSize: "15px",
+                  },
+                }}
+                style={{ backgroundColor: "#f0e792" }}
               />
-
               <Button
+                sx={{ backgroundColor: "#f0e792", color: "#1e272e", mt: 2 }}
                 variant="contained"
-                color="secondary"
                 type="submit"
                 disabled={!task.title || !task.description || loading}
               >
                 {loading ? (
-                  <CircularProgress color="inherit" size={24} />
+                  <CircularProgress color="warning" size={24} />
                 ) : (
                   "SAVE"
                 )}

@@ -31,7 +31,7 @@ export default function TaskList() {
 
   return (
     <>
-      <h1>TASK LIST</h1>
+      <h3>TASK LIST</h3>
       {tasks.map((task) => (
         <Card
           key={task.id}
@@ -40,9 +40,9 @@ export default function TaskList() {
           <CardContent
             style={{ display: "flex", justifyContent: "space-between" }}
           >
-            <div style={{ color: "white" }}>
-              <Typography>{task.title}</Typography>
-              <Typography>{task.description}</Typography>
+            <div>
+              <Typography color="white">{task.title}</Typography>
+              <Typography color="GrayText">{task.description}</Typography>
             </div>
 
             <div>
